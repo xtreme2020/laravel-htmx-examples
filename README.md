@@ -1,4 +1,4 @@
-# Laravel with HTMX infinite scroll and Laravel Pagination, also include live search Example
+# Laravel with HTMX infinite scroll and Laravel Pagination, also include live search with browser view transition api Example
 
 ## Project Setup
 
