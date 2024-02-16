@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function (Request $request) {
     $view_examples=array(
-      'Infinity Scroll'=>'/posts',
+      'Infinite Scroll'=>'/posts',
         'Laravel Pagination'=>'/posts/paginated',
     );
     if(!session()->has('selected_view')) {
@@ -38,7 +38,7 @@ Route::get('/posts', function (\Illuminate\Http\Request $request) {
     $posts = \App\Models\Post::when(session()->has('q'), function ($query) use ($request) {
         $query->where('title', 'like', '%'.session('q').'%');
     })->paginate(6);
-    return view('posts-infinity-scroll', compact('posts'));
+    return view('posts-infinite-scroll', compact('posts'));
 });
 
 //Laravel's pagination with htmx
