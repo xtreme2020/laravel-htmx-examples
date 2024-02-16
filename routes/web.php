@@ -30,7 +30,7 @@ Route::get('/', function (Request $request) {
 
 //infinity scroll
 Route::get('/posts', function (\Illuminate\Http\Request $request) {
-    sleep(1);
+
     session(['selected_view' => '/posts']);
     if($request->has('q')) {
         session(['q' => $request->q]);

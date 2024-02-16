@@ -6,7 +6,7 @@
                    href="#"
                    hx-target="#search-results"
                    hx-swap="innerHTML transition:true"
-                   class="text-xl shadow-md border-2 text-purple-500 mr-2 inline-block font-bold py-3 px-6 rounded-full">
+                   class="text-xl views {{session('selected_view')===$value ? 'selected-option':'' }} shadow-md border-2 text-purple-500 mr-2 inline-block font-bold py-3 px-6 rounded-full">
                     {{ $key }}
                 </a>
             @endforeach
@@ -21,9 +21,23 @@
     </div>
 
 <script>
-    //Convert the pagination links to htmx
+
+
+
 
     document.addEventListener("htmx:load", function (event) {
+
+        //set active class on the selected view
+        document.querySelectorAll('.views').forEach(function (el) {
+            el.addEventListener('click', function (e) {
+                document.querySelectorAll('.views').forEach(function (el) {
+                    el.classList.remove('selected-option');
+                });
+                el.classList.add('selected-option');
+            });
+        });
+
+        //Convert the pagination links to htmx
         // select all the pagination links
         let paginationLinks =document.querySelectorAll('[role="navigation"] a');
 
@@ -43,6 +57,10 @@
         .htmx - indicator {
             display: none;
         }
+
+           .selected-option {
+                  border: 2px solid #FFC933;
+                }
 
         /* HTML: <div class="loader"></div> */
         .loader {
