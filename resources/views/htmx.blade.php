@@ -21,6 +21,8 @@
     </div>
 
 <script>
+    //Convert the pagination links to htmx
+
     document.addEventListener("htmx:load", function (event) {
         // select all the pagination links
         let paginationLinks =document.querySelectorAll('[role="navigation"] a');
