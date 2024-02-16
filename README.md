@@ -13,7 +13,7 @@
 
     npm run dev
     
-## views with HTMX
+## Views with HTMX
 htmx, post-inifinite-scroll and post-paginated are the views that use htmx to load the data from the server.
 
 ## HTMX Component
